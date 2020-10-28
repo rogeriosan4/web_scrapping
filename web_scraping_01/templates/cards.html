@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <style>
+        h1, h2, h3{
+            font-family: montserratSemiBold,Arial,Sans-Serif;
+            text-transform: uppercase;
+        }
+
+        a {
+            color: #2b2b2b;
+            text-decoration: none;
+            outline: none;
+        }
+        p {
+            text-align: justify;
+        }
+
+        img {
+            width: 216;
+            height: 288;
+        }
+
+        div {
+            padding: 5px;
+            margin: 5px;
+        }
+        .card{
+            width: 700; 
+            height: 320;
+            background-color: aliceblue; 
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .esquerda{
+            float: left; 
+            /* background-color: cadetblue;  */
+        }
+
+        
+    </style>
+</head>
+<h1>Lista de Filmes em Cartaz</h1>
+<h2>www.adorocinema.com</h2>
+<body>
+    {% for filme in filmes %}
+    <div class="card">
+        <div class="esquerda">
+          <img src="{{filme['poster']}}" alt="{{filme['titulo']}}" />
+        </div>
+        <div class="direita">
+            <h2><a href="{{filme['link']}}">{{filme['titulo']}}</a></h2>
+            <h3>Lançamento: {{filme['lancamento']}}</h3>
+            <h4>Sinopse:</h4>
+            <p>{{filme['sinopse']}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
